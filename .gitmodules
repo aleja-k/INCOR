@@ -1,0 +1,3 @@
+[submodule "GeoAgro"]
+	path = GeoAgro
+	url = https://github.com/aleja-k/GeoAgro.git
