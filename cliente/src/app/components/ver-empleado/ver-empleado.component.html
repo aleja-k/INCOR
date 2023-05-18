@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-2">
+        <button class="btn btn-success float-end" routerLink="/">Cerrar Sesión</button>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="container mt-5">
+      <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+              <div class="card">
+                  <div class="card-body text-center">
+                      <span class="titulo">Empleados Y Pago</span>
+                      <button class="btn btn-success float-end" routerLink="/crear-empleado">Nuevo</button>
+                      <table *ngIf="listEmpleados.length > 0" class="table table-striped mt-5">
+                          <thead>
+                            <tr>
+                              <th scope="col">Nombre</th>
+                              <th scope="col">Apellido</th>
+                              <th scope="col">Kilos</th>
+                              <th scope="col">Decuentos</th>
+                              <th scope="col">Pago</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor='let empleado of listEmpleados'>
+                              <th>{{empleado.nombre}}</th>
+                              <td>{{empleado.apellido}}</td>
+                              <td>{{empleado.kilos| currency: ' K ' }}</td>
+                              <td>{{empleado.descuentos | currency: ' $ '}}</td>
+                              <td>{{empleado.pago | currency: ' $ '}}</td>
+                              <td>
+                                  <i [routerLink]="['/editar-empleado/',empleado._id]" class="fa-solid fa-pen-to-square text-primary "></i>
+                                  <i (click)="eliminarEmpleado(empleado._id)" class="fa-solid fa-trash text-danger"></i>
+                              </td>
+                            </tr>
+                          </tbody>
+                          <h5 style="text-align: start;margin-top: 10px;" *ngIf="listEmpleados.length == 0"> No hay empleados para mostrar</h5>
+                        </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  

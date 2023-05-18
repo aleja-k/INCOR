@@ -1,0 +1,114 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">{{titulo | uppercase}}
+                    </span>
+                    <form class="mt-3" [formGroup]="empleadoForm" (ngSubmit)="agregarEmpleado(); addValue($event); addDescuentos($event); addPago($event)">
+                        <div class="mb-3">
+                            <label class="float-start mb-2">Valor Kilo:</label>
+                           <input type="text" 
+                            formControlName="valorKilo"
+                            class="form-control form-control-lm" 
+                            placeholder="valorKilo"  >
+                            <div class="text-danger"
+                            *ngIf="empleadoForm.get('valorKilo')?.hasError('required') && empleadoForm.get('valorKilo')?.touched ">                           
+                                <span>El valor Kilo  <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="float-start mb-2">Nombre:</label>
+                           <input type="text" 
+                            formControlName="nombre"
+                            class="form-control form-control-lm" 
+                            placeholder="Nombre"  >
+                            <div class="text-danger"
+                            *ngIf="empleadoForm.get('nombre')?.hasError('required') && empleadoForm.get('nombre')?.touched ">                           
+                                <span>El nombre del empleado  <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="float-start mb-2">Apellido:</label>
+                            <input type="text" 
+                            formControlName="apellido"
+                            class="form-control form-control-lm" 
+                            placeholder="Apellido">
+                            <div class="text-danger"
+                                *ngIf="empleadoForm.get('apellido')?.hasError('required') && empleadoForm.get('apellido')?.touched">
+                                <span>El apellido del empleado  <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 ">
+                                <label class="mb-1 float-start mb-2">Kilos:</label>
+                                <input type="number" 
+                                formControlName="kilos"
+                                class="form-control form-control-lm" 
+                                placeholder="Kilos"
+                                >
+                                
+                                <div class="text-danger"
+                                *ngIf="empleadoForm.get('kilos')?.hasError('required') && empleadoForm.get('kilos')?.touched">
+                                    <span>El descuento  <strong>es obligatorio</strong></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 ">
+                                <label class="mb-1 float-start mb-2"></label>
+                                <br>
+                                <button type="btn btn-success  btn-lg float-end" class="button-32" [disabled]="empleadoForm.get('kilos')?.invalid" (click)="addValue($event)">+</button>
+                            </div>
+                            <div style="width: 100%; overflow-x: auto;">
+                                <ul style="list-style: none; padding: 0;">
+                                  <li style="display: inline; padding: 5px;" *ngFor="let value of array">{{ value }} -</li>
+                                </ul>
+                                <h6>Total Kilos: {{totalKilos}}</h6>
+                              </div>
+                        </div>
+                       
+                        <div class="row">
+                            <div class="col-lg-8 ">
+                                <label class="float-start mb-2">Descuentos:</label>
+                                <input type="number" 
+                                formControlName="descuentos"
+                                class="form-control form-control-lm" 
+                                placeholder="Descuentos">
+                                
+                                <div class="text-danger"
+                                *ngIf="empleadoForm.get('descuentos')?.hasError('required') && empleadoForm.get('descuentos')?.touched">
+                                <span>El descuento  <strong>es obligatorio</strong></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 ">
+                                <label class="mb-1 float-start mb-2"></label>
+                                <br>
+                                <button type="btn btn-success  btn-lg float-end"  class="button-32"  [disabled]="empleadoForm.get('descuentos')?.invalid" (click)="addDescuentos($event)">+</button>
+                            </div>
+                            <div style="width: 100%; overflow-x: auto;">
+                                <ul style="list-style: none; padding: 0;">
+                                  <li style="display: inline; padding: 5px;" *ngFor="let value of arrayDescuentos">{{ value }} -</li>
+                                </ul>
+                                <h6>Total Descuentos: {{totalDescuentos}}</h6>
+                              </div>
+                        </div>
+                        
+                        <div class="mb-3 ">
+                            <label class="float-start mb-2">Pago:</label>
+                            <button type="btn btn-success  btn-lg float-end"  class="button-29" (click)="addPago($event)">Pagar</button>
+                            <br>
+                            <h6>Total Pago: {{TotalPagar}}</h6>
+                            <div class="text-danger"
+                                *ngIf="empleadoForm.get('pago')?.hasError('required') && empleadoForm.get('pago')?.touched">
+                                <span>El pago  <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button routerLink="/ver-empleado" class="btn btn-secondary btn-lg float-start">Volver</button>
+                            <button type="submit"  class="btn btn-success  btn-lg float-end">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
