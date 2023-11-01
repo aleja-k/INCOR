@@ -1,0 +1,58 @@
+.sidenav-container {
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+    color: #000000;
+  }
+  
+  .sidenav {
+    width: 250px;
+  }
+ p {
+    color: #000000;
+  }
+  /* Estilos para el encabezado en el menú lateral */
+.sidenav-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el título del sitio en el contenido principal */
+.site-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Estilos para los enlaces en el contenido principal */
+.link-negro {
+  color: black;
+  text-decoration: none;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Estilos para el contenido principal */
+.main-content {
+  padding: 20px;
+}
+
+.menu-option {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-bottom: 1px solid #ccc; /* Línea entre las opciones */
+}
+
+/* Estilos para las líneas */
+.line {
+  height: 1px;
+  background-color: #ccc; /* Color de la línea */
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.full-height {
+  height: calc(100vh - 64px); /* 64px es una estimación de la altura del encabezado si lo tienes; ajusta este valor según tus necesidades */
+  /* Otras propiedades de estilo según sea necesario */
+}

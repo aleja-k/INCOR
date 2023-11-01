@@ -1,0 +1,17 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav class="sidenav">
+    <!-- Tu menú lateral aquí -->
+  </mat-sidenav>
+
+  <mat-sidenav-content class="full-height">
+    <div class="main-content">
+      <h1 class="site-title">INCOR</h1>
+      <a routerLink="/inicio" class="link-negro">Inicio</a><BR>
+      <div class="line"></div>
+      <a routerLink="/producto" class="link-negro">Aspirante</a>
+      <router-outlet></router-outlet>
+    </div>
+    <!-- Botón al final del menú -->
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>
